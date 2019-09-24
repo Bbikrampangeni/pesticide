@@ -1,5 +1,7 @@
 /* global*/
 
+
+
 *{
   margin: 0;
   padding: 0;
@@ -8,15 +10,7 @@
 
 body {
 
-    font-family: "Montserrat",sans-serif;
-}
-a{
-
-    text-decoration: none;
-}
-li{
-
-    list-style: none;
+    font-family: "poppins",sans-serif;
 }
 
 
@@ -25,57 +19,44 @@ li{
 --main-color: green;
 
 }
+/* navigation bar*/
 
-.navbar{
+nav{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ min-height: 8vh;
+ font-family: "poppins",sans-serif;
 
-    width: 100%;
-    padding: 40px 0;
-    
 }
+.logo{
 
-.container{
-
-    width: 80%;
-    margin: auto;
+  text-transform: uppercase;
+  font-size: 20px;
 }
-.container p{
-
-    
-    font-size : 50px;
-    cursor: pointer;
-    color:black ;
-}
- p .golden{
+p .golden {
 
   color: gold;
-
 }
-
-
-.navbar .container{
-
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.nav-links{
+display: flex;
+justify-content: space-around;
+width: 80%;
 }
-.nav{
-
-    justify-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.nav a{
-
-    margin-right: 70px;
-    border-right: 1px solid;
-    border-left: 1px solid;
-    font-weight: 400;
+.nav-links a{
+  text-decoration:none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size :14px;
+  text-transform: uppercase;
+  color: black;
   
-    font-size: 19px;
-    color: black;
-
 }
-.nav input[type=text] {
+.nav-links li{
+  list-style: none;
+}
+
+.nav-links input[type=text] {
     float: right;
     padding: 6px;
 
@@ -86,9 +67,116 @@ li{
     border-radius: 3px;
     font-size: 17px;
   }
+  .burger{
+
+    display: none;
+    cursor: pointer;
+  }
+.burger div {
+
+  width: 25px;
+  height :5px;
+  background-color: black;
+  margin: 3px;
+ transition:  all 0.3s ease; 
+ 
 
 
+}
+/* for tablet */
 
+@media screen and (max-width:1024px){
+
+  body{
+
+    overflow-x: hidden;
+  }
+  .nav-links{
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top:8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 50%;
+    transform: translateX(100%);
+    transition: tranform 0.5s ease-in;
+  }
+ 
+  .nav-links li {
+  
+    opacity: 0;
+  }
+  .burger{
+    display: block;
+    cursor: pointer;
+  }
+  .nav-active{
+    transform: translateX(0%);
+  
+  }
+}
+
+/* for mobile */
+@media screen and (max-width:768px){
+body{
+
+  overflow-x: hidden;
+}
+.nav-links{
+  position: absolute;
+  right: 0px;
+  height: 92vh;
+  top:8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ background-color: white;
+ 
+
+  width: 50%;
+  transform: translateX(100%);
+  transition: tranform 0.5s ease-in;
+}
+
+.nav-links li {
+
+  opacity: 0;
+}
+.burger{
+  display: block;
+ 
+ 
+}
+.nav-active{
+  transform: translateX(0%);
+
+}
+@keyframes navLinkFade {
+  from{
+    opacity:0 ;
+    transform: translateX(50px);
+  }
+  to{
+  opacity: 1;
+  transform: translateX(0px);
+  }
+}
+.toggle .line1{
+transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+  opacity: 0;
+}
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-6px);
+  
+}
+
+
+}
 
 
   /* main section */
@@ -97,13 +185,20 @@ li{
   .main{
 
     width: 100%;
-    background-color: green;
-
+    background-color: grey;
+   /* 
+    background-image: url("/images/1.png");
+   margin-left: 70%;
+  background-repeat: no-repeat;
+  position: relative;
+  background-origin: content-box; */
+    
   }
   .main-container{
 
     width: 80%;
     margin: 50px auto;
+  
 
    
   }
@@ -122,6 +217,7 @@ li{
 
    color: white;
     margin-top: 10px;
+    font-size: 4vw;
   
   }
   
@@ -129,32 +225,24 @@ li{
 
     color: white;
      margin-top: 10px;
+     margin-bottom: 20px;
+     font-size: 1vw;
  
    }
 
   .main-container h1 {
 
-    font-size: 60px;
+    font-size: 7vw;
     margin: 80px 0;
     color: beige;
 
   }
 
-  /*.main-container .btn {
-
-    background: var(--main-color);
-    padding: 15px 25px;
-    margin: 10px 0;
-    display: inline-block;
-    font-size: 15px;
-    color: white;
-    border-radius: 1px;
-    box-shadow: var(--drop-shadow);
-    justify-content: center;
-  }*/
+  
   .main-container img{
 
     width: 100%;
+  
   }
 
 
@@ -216,3 +304,4 @@ a.float:hover + div.label-container{
   visibility: visible;
   opacity: 1;
 }
+
